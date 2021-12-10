@@ -1,0 +1,5 @@
+/images/doc-2.png filter=lfs diff=lfs merge=lfs -text
+/images/haibao-1.png filter=lfs diff=lfs merge=lfs -text
+/images/idcard-1.png filter=lfs diff=lfs merge=lfs -text
+/images/train-ticket-1.png filter=lfs diff=lfs merge=lfs -text
+/images/train-ticket-2.png filter=lfs diff=lfs merge=lfs -text
