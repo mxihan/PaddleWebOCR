@@ -9,7 +9,7 @@ dist/
 node_modules/
 
 # PaddlePaddle Models
-inference/
+# inference/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
