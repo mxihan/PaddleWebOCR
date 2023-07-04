@@ -35,18 +35,18 @@
             <div style="margin-top:1rem;">
               <p>
                 选择模型:
-                <a-select default-value="ch_ppocr_mobile_v2.0_xx" style="width: 220px" @change="handleOrcModelChange">
-                 <a-select-option value="ch_ppocr_mobile_v2.0_xx">
-                   ch_ppocr_mobile_v2.0_xx
+                <a-select default-value="ch_PP-OCRv3_xx_slim" style="width: 220px" @change="handleOrcModelChange">
+                 <a-select-option value="ch_PP-OCRv3_xx_slim">
+                   ch_PP-OCRv3_xx_slim
                  </a-select-option>
-                 <a-select-option value="ch_PP-OCRv2_xx">
-                   ch_PP-OCRv2_xx
+                 <a-select-option value="ch_PP-OCRv3_xx">
+                   ch_PP-OCRv3_xx
                  </a-select-option>
-                 <a-select-option value="ch_ppocr_server_v2.0_xx">
-                   ch_ppocr_server_v2.0_xx
+                 <a-select-option value="ch_PP_OCRv2_xx_slim">
+                   ch_PP_OCRv2_xx_slim
                  </a-select-option>
-                 <a-select-option value="chinese_cht_mobile_v2.0">
-                   chinese_cht_mobile_v2.0
+                 <a-select-option value="ch_PP_OCRv2_xx">
+                   ch_PP_OCRv2_xx
                  </a-select-option>
                 </a-select>
               </p>

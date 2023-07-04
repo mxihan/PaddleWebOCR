@@ -1,0 +1,10 @@
+inference/ch_PP-OCRv2_rec_slim_quant_infer filter=lfs diff=lfs merge=lfs -text
+inference/ch_PP-OCRv3_rec_slim_infer filter=lfs diff=lfs merge=lfs -text
+inference/ch_ppocr_mobile_v2.0_cls_infer filter=lfs diff=lfs merge=lfs -text
+inference/ch_PP-OCRv2_det_infer filter=lfs diff=lfs merge=lfs -text
+inference/ch_PP-OCRv2_det_slim_quant_infer filter=lfs diff=lfs merge=lfs -text
+inference/ch_PP-OCRv2_rec_infer filter=lfs diff=lfs merge=lfs -text
+inference/ch_PP-OCRv3_det_infer filter=lfs diff=lfs merge=lfs -text
+inference/ch_PP-OCRv3_det_slim_infer filter=lfs diff=lfs merge=lfs -text
+inference/ch_PP-OCRv3_rec_infer filter=lfs diff=lfs merge=lfs -text
+inference/ch_ppocr_mobile_v2.0_cls_slim_infer filter=lfs diff=lfs merge=lfs -text
