@@ -51,6 +51,23 @@
                 </a-select>
               </p>
               <p>
+                选择后处理类型:
+                <a-select default-value="id_card_front" style="width: 220px" @change="handleOrcPostProcessChange">
+                 <a-select-option value="id_card_front">
+                   身份证正面
+                 </a-select-option>
+                  <a-select-option value="id_card_back">
+                   身份证反面
+                 </a-select-option>
+                 <a-select-option value="business_license">
+                   营业执照
+                 </a-select-option>
+                 <a-select-option value="empty">
+                   无
+                 </a-select-option>
+                </a-select>
+              </p>
+              <p>
                 压缩图片:
                 <a-switch
                   style="width:auto;min-width:45%;"
@@ -92,7 +109,7 @@
 
           <div class="ocr-text" :hidden="hiddenOcrText">
             <a-divider orientation="left">识别的文字</a-divider>
-            <CodeHighlight :txt="ocrText" />
+            <CodeHighlight :txt="JSON.stringify(ocrResult)" />
           </div>
         </div>
       </a-col>
@@ -132,6 +149,7 @@ export default {
       detectedImg: '', // 检测后的图片
       ocrRaw: ``, // 返回的原始结果
       ocrText: ``, // 经过提取后的文字结果
+      ocrResult: {}, // 识别结果
 
       uploading: false, //状态 原生 上传控件的状态
       previewImgHidden: true, // 状态 预览图片是否隐藏
@@ -141,6 +159,7 @@ export default {
       hiddenOcrText: true, // 状态 是否显示经过提取后的文字结果
       comporessSize: 1600,
       ocrModel: 1600,
+      ocrPostProcess: 'id_card_front',
       hiddenCompressBox:false
     }
   },
@@ -150,6 +169,9 @@ export default {
   methods: {
     handleOrcModelChange(value) {
       this.ocrModel = value
+    },
+    handleOrcPostProcessChange(value) {
+      this.ocrPostProcess = value
     },
     changeCompressBtn(checked) {
 
@@ -197,6 +219,7 @@ export default {
       }
 
       formData.append('ocr_model',this.$data.ocrModel)
+      formData.append('ocr_post_process',this.$data.ocrPostProcess)
 
       this.isOCRing = true
       this.uploading = true
@@ -214,6 +237,7 @@ export default {
       })
         .then(function(response) {
           _this.$data.detectedImg = response.data['data']['img_detected']
+          _this.$data.ocrResult = response.data['data']['result']['Data']
 
           _this.$data.ocrRaw = ''
           _this.$data.ocrText = ''
