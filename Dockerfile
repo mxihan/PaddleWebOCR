@@ -12,6 +12,7 @@ WORKDIR /app
 
 COPY requirements.txt requirements.txt
 COPY paddlewebocr paddlewebocr
+COPY inference inference
 COPY --from=nodejsbuilder /app/dist webui/dist
 COPY docker-entrypoint.sh /usr/local/bin/
 
