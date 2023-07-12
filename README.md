@@ -20,13 +20,13 @@ An opensource offline multi-languages OCR system shipped with RESTful api and we
  
 ### 运行平台  
 
-* ✔ Python 3.7+  
+* ✔ Python 3.10+  
 * ✔ Windows 10/11
-* ✔ CentOS 7   
+* ✔ Any Modern Linux Distributions   
 * ✔ MacOS Big Sur 
 * ✔ Docker   
 
-Windows、CentOS 和 MacOS 系统下在安装好依赖之后可以直接运行，目前只构建了 paddlepaddle 的 CPU 版本，不支持 GPU。也过通过构建 Docker 镜像或者直接从 DockerHub 拉去镜像来使用。
+Windows、Linux 和 MacOS 系统下在安装好依赖之后可以直接运行，目前只构建了 paddlepaddle 的 CPU 版本，不支持 GPU。也过通过构建 Docker 镜像或者直接从 DockerHub 拉去镜像来使用。
 
 ### 最低配置要求  
 
@@ -45,7 +45,7 @@ npm install
 npm run build
 ```
 
-1. 安装 python 3.7  
+1. 安装 python 3.10  
     
 2. 安装依赖包  
 
@@ -74,7 +74,7 @@ PYTHONPATH="${PYTHONPATH}:." python paddlewebocr/main.py [--port=8080]
 docker run -d -p 8080:8080 -v ${PWD}/logs:/app/logs --name paddlewebocr lewangdev/paddlewebocr:latest
 ```  
 
-使用脚本构建本地镜像（因为要编译 GCC，整个构建过程非常漫长）
+使用脚本构建本地镜像
 
 ```shell script
 # Dockerfile 构建
