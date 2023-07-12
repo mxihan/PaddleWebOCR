@@ -1,31 +1,25 @@
 FROM nodejs as nodejsbuilder
-FROM gcc:8.2.0-centos7 as gccbuilder
-FROM python:3.7-centos7
+FROM python:3.10.12-bookworm
 
-COPY --from=gccbuilder /usr/local/gcc-8.2.0 /usr/local/gcc-8.2.0
-
-ENV LD_LIBRARY_PATH=/usr/local/gcc-8.2.0/lib64:${LD_LIBRARY_PATH}
-
-RUN yum install -y \
-	    gmp-devel \
-	    mpfr-devel \
-	    libmpc-devel
+RUN sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list.d/debian.sources && \
+    apt update && \
+    apt install -y libgl1 && \
+    apt clean && \
+    wget http://security.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1-1ubuntu2.1~18.04.23_amd64.deb && \
+    dpkg -i libssl1.1_1.1.1-1ubuntu2.1~18.04.23_amd64.deb
 
 WORKDIR /app
 
 COPY requirements.txt requirements.txt
+COPY paddlewebocr paddlewebocr
+COPY --from=nodejsbuilder /app/dist webui/dist
+COPY docker-entrypoint.sh /usr/local/bin/
 
 RUN pip install -i https://mirrors.aliyun.com/pypi/simple/ \
         --no-cache-dir \
         -r requirements.txt
 
-COPY paddlewebocr paddlewebocr
-
 RUN python paddlewebocr/pkg/ocr.py
-
-COPY --from=nodejsbuilder /app/dist webui/dist
-
-COPY docker-entrypoint.sh /usr/local/bin/
 
 ENTRYPOINT ["docker-entrypoint.sh"]
 
