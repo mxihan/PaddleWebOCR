@@ -16,7 +16,7 @@ COPY inference inference
 COPY --from=nodejsbuilder /app/dist webui/dist
 COPY docker-entrypoint.sh /usr/local/bin/
 
-RUN pip install -i https://mirrors.aliyun.com/pypi/simple/ \
+RUN pip install -i https://mirrors.ustc.edu.cn/pypi/web/simple \
         --no-cache-dir \
         -r requirements.txt
 
