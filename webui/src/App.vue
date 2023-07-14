@@ -8,7 +8,7 @@
       </a-layout-content>
 
       <a-layout-footer class="footer" style="background-color:transparent;padding:0.2rem">
-        <a href="https://github.com/lewangdev/PaddleWebOCR">PaddleWebOCR - 开源的离线 OCR（https://github.com/lewangdev/PaddleWebOCR）</a>
+        <a>基于PaddleOCR的在线OCR服务</a>
       </a-layout-footer>
     </a-layout>
   </div>
