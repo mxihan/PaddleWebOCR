@@ -1,5 +1,5 @@
 FROM nodejs as nodejsbuilder
-FROM python:3.10.12-bookworm
+FROM python:3.8.17-bookworm
 
 RUN sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list.d/debian.sources && \
     apt update && \
@@ -15,7 +15,8 @@ COPY paddlewebocr paddlewebocr
 COPY inference inference
 COPY --from=nodejsbuilder /app/dist webui/dist
 COPY docker-entrypoint.sh /usr/local/bin/
-
+RUN wget https://paddle-wheel.bj.bcebos.com/2.4.2/linux/linux-cpu-mkl-noavx/paddlepaddle-2.4.2-cp38-cp38-linux_x86_64.whl
+RUN pip install paddlepaddle-2.4.2-cp38-cp38-linux_x86_64.whl -i https://mirrors.ustc.edu.cn/pypi/web/simple
 RUN pip install -i https://mirrors.ustc.edu.cn/pypi/web/simple \
         --no-cache-dir \
         -r requirements.txt
