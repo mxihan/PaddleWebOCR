@@ -108,7 +108,7 @@
           </div>
 
           <div class="ocr-text" :hidden="hiddenOcrText">
-            <a-divider orientation="left">识别的文字</a-divider>
+            <a-divider orientation="left">识别结果</a-divider>
             <CodeHighlight :txt="JSON.stringify(ocrResult)" />
           </div>
         </div>
@@ -237,7 +237,7 @@ export default {
       })
         .then(function(response) {
           _this.$data.detectedImg = response.data['data']['img_detected']
-          _this.$data.ocrResult = response.data['data']['result']['Data']
+          _this.$data.ocrResult = response.data['data']['content']['Data']
 
           _this.$data.ocrRaw = ''
           _this.$data.ocrText = ''

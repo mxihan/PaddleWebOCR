@@ -60,6 +60,7 @@ async def ocr(img_upload: UploadFile = File(None),
     data = {'code': 0, 'msg': '成功',
             'data': {'img_detected': 'data:image/jpeg;base64,' + img_drawed_b64,
                      'raw_out': list(map(lambda x: [x[0], x[1][0], x[1][1]], texts)),
+                     'result_list': list(map(lambda x: x[1][0], texts)),
                      'speed_time': round(time.time() - start_time, 2),
-                     'result': result}}
+                     'content': result}}
     return MyORJSONResponse(content=data)

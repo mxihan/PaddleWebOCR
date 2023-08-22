@@ -1,7 +1,6 @@
 from typing import List
 
-from pydantic import AnyHttpUrl
-from pydantic_settings import BaseSettings
+from pydantic import AnyHttpUrl, BaseSettings
 
 
 class Settings(BaseSettings):
