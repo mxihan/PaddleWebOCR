@@ -36,6 +36,12 @@
               <p>
                 选择模型:
                 <a-select default-value="ch_PP-OCRv3_xx_slim" style="width: 220px" @change="handleOrcModelChange">
+                 <a-select-option value="ch_PP-OCRv4_xx">
+                   ch_PP-OCRv4_xx
+                 </a-select-option>
+                 <a-select-option value="ch_PP-OCRv4_xx_server">
+                   ch_PP-OCRv4_xx_server
+                 </a-select-option>
                  <a-select-option value="ch_PP-OCRv3_xx_slim">
                    ch_PP-OCRv3_xx_slim
                  </a-select-option>
